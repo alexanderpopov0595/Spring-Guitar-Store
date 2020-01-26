@@ -1,0 +1,164 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+/* CONTAINER */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* HEADER */ 
+.header nav{
+	display: flex;
+  	flex-wrap: wrap;
+  	justify-content: space-between;
+  	align-items: center;
+	background-color: black;
+	color: white;
+	padding-left:1%;	
+}
+.header a{
+	color: white;
+	text-decoration:none;	
+}
+.header ul{
+	display: flex;	
+	width: auto;	
+	height:100%;	
+}
+.header ul li{
+	padding-right: 15px;
+}
+
+.header {
+  	font-family: inherit;
+  	font-size: 2rem;  	
+}
+.header ul li:not(:first-child):hover{
+	background-color:red;	
+}
+/* MAIN */
+.main{
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: flex-start;	
+	min-height: 350px;
+	background-color: white;
+	text-align: center;
+}
+.main div.list{
+	display: flex;
+	flex-direction:column;
+	align-items: center;
+	width: auto;
+	margin: 1%;
+	padding: 1%;	
+	background-color: white;
+	border: 10px double black;
+}
+.main div.list a{
+	text-decoration: none;
+	color: black;
+}
+.main div.list a:hover{
+	color: red;
+}
+.main div.list:hover{
+	background-color: rgba(0, 0, 255, 0.2);
+}
+
+.main div.form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin: auto;	
+	height: 80%;
+	font-size: 25px;	
+}
+/* FIELDSET */
+.main div.info_field{	
+	display: flex;	
+	flex-orientation: row;
+	
+	
+}
+.main div.info_field img{
+	margin: 1%;
+	border: 2px solid black;
+	border-radius: 20px;
+}
+
+.main div.info_field form{
+		flex-grow: 1;
+	width: 50%;
+	text-align: center;
+	margin-top:1%;
+}
+.main div.info_field table td{
+	text-align: left;
+}
+.main div.info_field .sidebar{
+	display: flex;
+	color: white;
+	background-color:black;
+	width: auto;	
+
+	border: 2px solid blue;
+	border-radius: 20px;
+	margin:1%;
+}
+.main div.info_field .sidebar ul li a{
+	text-decoration: none;
+	color: white;
+}
+.main div.info_field .sidebar ul li:not(:first-child):hover{
+	background-color:red;	
+}
+
+/* MENU */
+.menu{
+	display:none;
+}
+.title {
+      font-size: 18px;
+      cursor: pointer;
+      color:red;
+ }
+.title::before {
+      content: '▶ ';
+      font-size: 80%;
+      color: white;
+    }
+.menu.open {
+	
+	display: flex;
+	flex-direction: column;
+}
+.title.down::before {
+      content: '▼ ';
+    }
+/* FOOTER */
+.footer{
+	background-color: black;
+	color: white;
+	text-align: center;
+	
+}
+
+
+/* ERROR*/
+.errors{
+	color: red;
+}
+
+

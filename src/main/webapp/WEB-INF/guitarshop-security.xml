@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+	xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                    http://www.springframework.org/schema/security 
+                    http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	<!-- this resources are public -->
+	<http auto-config="true" use-expressions="true">	
+		<port-mappings>
+			<port-mapping http="8081" https="8443"/>
+		</port-mappings>
+		 <intercept-url pattern="/guitars/form" access="hasRole('ROLE_USER')" />
+		 <intercept-url pattern="/login " access="permitAll" requires-channel="https"/>
+		<!-- custom login page -->
+		<form-login login-page="/login"
+                login-processing-url="/static/j_spring_security_check"  
+                authentication-failure-url="/login" 
+                default-target-url="/profile" 
+				always-use-default-target="true"/>
+         <logout logout-url="/static/j_spring_security_logout"/>
+	</http>
+	<!-- use jdbc) -->
+	<authentication-manager>
+		<authentication-provider>
+			<jdbc-user-service id="userService"
+				data-source-ref="dataSource"
+				users-by-username-query="select login, password, true from users where login=?"
+				authorities-by-username-query="select login,'ROLE_USER' from users where login=?" />
+		</authentication-provider>
+	</authentication-manager>
+	<beans:import resource="persistence-jdbc-context.xml" />
+</beans:beans> 
